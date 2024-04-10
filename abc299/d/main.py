@@ -1,5 +1,12 @@
 N = int(input())
-N,M = map(int,input().split())
 
-A = list(map(int,input().split()))
-l = [list(map(int, input().split())) for _ in range(N)]
+lt, rt = 1, N
+while lt + 1 != rt:
+    md = (rt + lt) // 2
+    print('?', md)
+    s = int(input())
+    if s == 0:
+        lt = md
+    else:
+        rt = md
+print('!', lt)

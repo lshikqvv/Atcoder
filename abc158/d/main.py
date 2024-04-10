@@ -1,4 +1,5 @@
 from collections import deque
+
 S = deque(input())
 Q = int(input())
 
@@ -8,16 +9,11 @@ for i in range(Q):
     if que[0] == "1":
         flg = 1 - flg
     else:
-        f = que[1]
+        f = int(que[1]) - 1
         c = que[2]
-        if flg == 0:
-            if f == "1":
-                S.appendleft(c)
-            else:
-                S.append(c)
+        if f == flg:
+            S.appendleft(c)
         else:
-            if f == "1":
-                S.append(c)
-            else:
-                S.appendleft(c)
+            S.append(c)
+
 print("".join(S) if flg == 0 else "".join(S)[::-1])
