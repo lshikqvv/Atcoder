@@ -38,6 +38,17 @@ $$
 
 <details>
 
+<summary>ABC087</summary>
+
+## B
+
+動的計画法ではなく、シンプルにfor文を回す。
+文字列を使ったり、ループ数が多くなるなら検討しなければならないが、今回は時間的にかなり余裕があるのでごり押しで全く問題ない。
+
+</details>
+
+<details>
+
 <summary>ABC158</summary>
 
 ## A, B, C
