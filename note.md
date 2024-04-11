@@ -15,6 +15,45 @@ MathJax = { chtml: { displayAlign: "left", }
 
 <details>
 
+<summary>ABC154</summary>
+
+## A, B, C
+
+omit.
+
+## D
+
+累積和を用いる。
+数列 $a_i$ の $l<=i<=r$ 区間における和は
+
+$$
+\begin{align}
+& s_j = \Sigma_{i=0}^j a_i
+\end{align}
+$$
+
+を満たす部分和 $s$ を用いて $s_r - s_l$ で簡単に表現できる
+
+</details>
+
+<details>
+
+<summary>ABC158</summary>
+
+## A, B, C
+
+omit.
+
+## D
+
+文字列の結合はコストが高く、今回の場合はqueryごとに結合しているとTLEとなるので、両側からデータを出し入れできるdequeを使用する。
+リストではpopやinsertでO(N)のコストが必要となるが、dequeではそれら（append, leftappend, pop, popleft）がすべてO(1)で実行できる。
+（両端以外のデータアクセスはリストが有利）
+
+</details>
+
+<details>
+
 <summary>ABC299</summary>
 
 ## A, B
@@ -40,39 +79,32 @@ omit.
 
 <details>
 
-<summary>ABC158</summary>
+<summary>tessoku_book</summary>
 
-## A, B, C
+## A18
 
-omit.
+動的計画法を利用する。
 
-## D
+A = [2, 3] の場合
 
-文字列の結合はコストが高く、今回の場合はqueryごとに結合しているとTLEとなるので、両側からデータを出し入れできるdequeを使用する。
-リストではpopやinsertでO(N)のコストが必要となるが、dequeではそれら（append, leftappend, pop, popleft）がすべてO(1)で実行できる。
-（両端以外のデータアクセスはリストが有利）
-
-</details>
-
-<details>
-
-<summary>ABC154</summary>
-
-## A, B, C
-
-omit.
-
-## D
-
-累積和を用いる。
-数列 $a_i$ の $l<=i<=r$ 区間における和は
+||0|1|2|3|4|5|6|7|8|9|...|
+|-----|-|-|-|-|-|-|-|-|-|-|-|
+|dp[0][j]|1|0|0|0|0|0|0|0|0|0|...|
+|dp[1][j]|1|0|1|0|1|0|1|0|1|0|...|
+|dp[2][j]|1|0|0|1|0|1|1|0|0|1|...|
 
 $$
-\begin{align}
-& s_j = \Sigma_{i=0}^j a_i
-\end{align}
+\left\{
+  \begin{align}
+    &\begin{split}
+      dp[i][j] &= 1 \quad (if \quad dp[i-1][j] = 1 \quad or \quad dp[i-1][j-A[i]])\\
+      &=0
+    \end{split}\\
+  \end{align}
+\right.
 $$
 
-を満たす部分和 $s$ を用いて $s_r - s_l$ で簡単に表現できる
+以上のようにdp表を用意して、dp[N][S]（目的の値）が1が否かを判定すればよい。
+
 
 </details>
