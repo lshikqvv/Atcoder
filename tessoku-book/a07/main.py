@@ -1,5 +1,13 @@
+D = int(input())
 N = int(input())
-N,M = map(int,input().split())
 
-A = list(map(int,input().split()))
-l = [list(map(int, input().split())) for _ in range(N)]
+dif = [0] * (D+2)
+for i in range(N):
+    L ,R = map(int, input().split())
+    dif[L] += 1
+    dif[R+1] -= 1
+
+ans = 0
+for i in range(1, D+1):
+    ans += dif[i]
+    print(ans)
